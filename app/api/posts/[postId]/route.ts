@@ -5,6 +5,8 @@ import { authOptions } from "@/lib/auth"
 import { db } from "@/lib/db"
 import { postPatchSchema } from "@/lib/validations/post"
 
+export const runtime = "edge"
+
 const routeContextSchema = z.object({
   params: z.object({
     postId: z.string(),

@@ -5,6 +5,8 @@ import { env } from "@/env.mjs"
 import { db } from "@/lib/db"
 import { stripe } from "@/lib/stripe"
 
+export const runtime = "edge"
+
 export async function POST(req: Request) {
   const body = await req.text()
   const signature = headers().get("Stripe-Signature") as string

@@ -1,0 +1,9 @@
+allowBuilds:
+  '@prisma/client': false
+  '@prisma/engines': false
+  contentlayer: false
+  esbuild: false
+  prisma: false
+  protobufjs: false
+  sharp: false
+  workerd: false

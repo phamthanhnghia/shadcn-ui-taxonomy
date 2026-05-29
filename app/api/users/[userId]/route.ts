@@ -5,6 +5,8 @@ import { authOptions } from "@/lib/auth"
 import { db } from "@/lib/db"
 import { userNameSchema } from "@/lib/validations/user"
 
+export const runtime = "edge"
+
 const routeContextSchema = z.object({
   params: z.object({
     userId: z.string(),
