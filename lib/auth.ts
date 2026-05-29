@@ -8,7 +8,7 @@ import { env } from "@/env.mjs"
 import { siteConfig } from "@/config/site"
 import { db } from "@/lib/db"
 
-const postmarkClient = new Client(env.POSTMARK_API_TOKEN)
+const postmarkClient = new Client(env.POSTMARK_API_TOKEN || "dummy_token")
 
 export const authOptions: NextAuthOptions = {
   // huh any! I know.
@@ -23,11 +23,11 @@ export const authOptions: NextAuthOptions = {
   },
   providers: [
     GitHubProvider({
-      clientId: env.GITHUB_CLIENT_ID,
-      clientSecret: env.GITHUB_CLIENT_SECRET,
+      clientId: env.GITHUB_CLIENT_ID || "",
+      clientSecret: env.GITHUB_CLIENT_SECRET || "",
     }),
     EmailProvider({
-      from: env.SMTP_FROM,
+      from: env.SMTP_FROM || "",
       sendVerificationRequest: async ({ identifier, url, provider }) => {
         const user = await db.user.findUnique({
           where: {
